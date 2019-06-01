@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const Projects = require('./projects-model')
+const Actions = require('./projects-model')
 
 router.get('/', async(req, res)=>{
   try{
@@ -36,15 +36,3 @@ router.post('/', async (req,res)=>{
 
 
 // GET for retrieving a project by its id that returns an object with the following structure:
-router.get('/', async(req, res)=>{
-  try {
-    const projects = await Projects.findById(req.params.id)
-    if(projects) {
-      res.status(200).json(projects)
-    } else {
-      res.status(404).json({message:'We could not find the Project'})
-    }
-  } catch (error){
-    res.status(500).json({message:' Error getting Project'})
-  }
-})

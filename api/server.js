@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 
 const projectsRouter = require('../projects/projects-router');
+// const actionsRouter = require('../projects/actions-router');
 
 const server = express();
 
@@ -9,6 +10,7 @@ server.use(helmet());
 server.use(express.json());
 
 server.use('/api/projects', projectsRouter);
+// server.use('/api/actions', actionsRouter);
 
 // sanity check route
 server.get('/', (req, res) => {

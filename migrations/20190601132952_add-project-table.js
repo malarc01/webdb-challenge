@@ -5,6 +5,9 @@ exports.up = function(knex, Promise) {
     // we call it id, integer , auto-increment
     column.increments(); //a unique Id.
 
+    
+
+
     column.string('name',128 ).notNullable().unique(); //name
     column.string('description',255).notNullable() //description column
     column.boolean('completed') //flag that indicates if the project is complete or not.
@@ -13,5 +16,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfItExists('projects')
+  return knex.schema.dropTableIfExists('projects')
 };
